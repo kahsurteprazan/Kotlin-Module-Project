@@ -33,7 +33,11 @@ class Menu<T>(
     private fun createNewItem() {
         val newItem = onCreateNewItem()
         items.add(newItem)
-        println("Добавлен: $newItem")
+
+        when (newItem) {
+            is Archive -> println("Добавлен архив: ${newItem.name}")
+            is Note -> println("Добавлена заметка: ${newItem.title}")
+        }
     }
 }
 
